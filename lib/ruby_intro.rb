@@ -2,12 +2,17 @@
 
 # Part 1
 
-def sum arr
+def sum(arr)
   # YOUR CODE HERE
+  currentSum = 0
+  arr.each {|a| currentSum += a}
+  return currentSum
+  
 end
 
-def max_2_sum arr
+def max_2_sum(arr)
   # YOUR CODE HERE
+  
 end
 
 def sum_to_n? arr, n
