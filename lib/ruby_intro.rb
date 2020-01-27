@@ -3,16 +3,37 @@
 # Part 1
 
 def sum(arr)
-  # YOUR CODE HERE
   currentSum = 0
   arr.each {|a| currentSum += a}
   return currentSum
-  
 end
 
 def max_2_sum(arr)
-  # YOUR CODE HERE
+  if arr.empty?
+    return 0
+  end
   
+  if arr.length() == 1
+    return arr[0]
+  end
+  
+  n1 = arr[0]
+  arr.delete_at(0)
+  n2 = arr[0]
+  arr.delete_at(0)
+  
+  for x in arr 
+    if(x > n1)
+      n1 = x
+      next
+    end
+    if(x > n2)
+      n2 = x
+      next
+    end
+  end
+    
+    return n1 + n2
 end
 
 def sum_to_n? arr, n
