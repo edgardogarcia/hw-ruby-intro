@@ -4,16 +4,18 @@
 #1.1
 def sum(arr)
   currentSum = 0
-  arr.each {|a| currentSum += a}
+  arr.each {|a| currentSum += a} 
   return currentSum
 end
 
 #1.2
 def max_2_sum(arr)
+  #Checking for empty array
   if arr.empty?
     return 0
   end
   
+  #Checking for array of size 1
   if arr.length() == 1
     return arr[0]
   end
@@ -43,10 +45,12 @@ def sum_to_n? arr, n
   if arr.length <= 1
     return false
   end 
-    
+  
+  #Getting all pair combinations from arr 
   pairs = arr.combination(2).to_a
   
   for i in pairs
+  #Checking if the current pair sum to n 
     if sum(i) == n
       return true
     end
@@ -63,11 +67,11 @@ end
 
 #2.2
 def starts_with_consonant? s
-   
+  #Check for empty string
   if s.empty? 
     return false
   end
-  
+  #Check for nonletters
   if !(s[0] =~ /[[:alpha:]]/)
     return false
   end
@@ -85,6 +89,7 @@ def binary_multiple_of_4? s
   pow2 = 1
   sum = 0
   
+  #Check for a valid binary number
   if !(s[0] =~ /[10]/)
     return false
   end 
@@ -107,12 +112,14 @@ end
 # Part 3
 class BookInStock
   def initialize(n,m)
+    #Check for empty ISBN and negative prices
     raise ArgumentError, "ISBN is Empty." unless !n.empty?
     raise ArgumentError, "Price cannot be negative." unless m > 0
     @isbn = n
     @price = m
   end
   
+  #Getters and Setters
   def isbn
     @isbn
   end
